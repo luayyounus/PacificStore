@@ -19,8 +19,8 @@ namespace PacificStore.Controllers
         {
             return new List<Movie>
             {
-                new Movie { Id = 1, Name = "Shrek"},
-                new Movie { Id = 2, Name = "Wall-E"}
+                new Movie { Name = "Shrek", Id = 1 },
+                new Movie { Name = "Wall-E", Id = 2}
             };
         }
     }

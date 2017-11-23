@@ -1,7 +1,30 @@
 ﻿@model IEnumerable<PacificStore.Models.Movie>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Movies";
 }
 
-<h2>@Model.Movie.Name</h2>
+<h2>Movies</h2>
+
+@if (!Model.Any())
+{
+    <p>We don't have any movies yet.</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Movie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var movie in Model)
+            {
+                <tr>
+                    <td>@movie.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
