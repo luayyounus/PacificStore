@@ -9,7 +9,7 @@ namespace PacificStore.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(PacificStore.Models.ApplicationDbContext context)
