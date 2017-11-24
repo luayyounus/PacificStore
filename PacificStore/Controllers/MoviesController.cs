@@ -1,4 +1,5 @@
 ﻿using PacificStore.Models;
+using System.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +10,22 @@ namespace PacificStore.Controllers
 {
     public class MoviesController : Controller
     {
-        public ViewResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public MoviesController()
         {
-            var movies = GetMovies();
-            return View(movies);
+            _context = new ApplicationDbContext();
         }
 
-        private IEnumerable<Movie> GetMovies()
+        protected override void Dispose(bool disposing)
         {
-            return new List<Movie>
-            {
-                new Movie { Name = "Shrek", Id = 1 },
-                new Movie { Name = "Wall-E", Id = 2}
-            };
+            _context.Dispose();
+        }
+
+        public ViewResult Index()
+        {
+            var movies = _context.Movies.Include(m => m.Name).ToList();
+            return View(movies);
         }
     }
 }
