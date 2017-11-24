@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PacificStore.ViewModels;
 
 namespace PacificStore.Controllers
 {
@@ -21,6 +22,16 @@ namespace PacificStore.Controllers
         {
             _context.Dispose();
         }
+
+        public ActionResult New()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+            return View(viewModel);
+        }      
 
         public ViewResult Index()
         {
