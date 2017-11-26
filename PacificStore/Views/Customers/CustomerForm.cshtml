@@ -7,8 +7,9 @@
 
 @using (Html.BeginForm("Save", "Customers"))
 {
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+
     <div class="form-group">
-        @Html.ValidationSummary(true, "Please fix the following errors.")
         @Html.LabelFor(m => m.Customer.Name)
         @Html.TextBoxFor(m => m.Customer.Name, new {@class = "form-control"})
         @Html.ValidationMessageFor(m => m.Customer.Name)
