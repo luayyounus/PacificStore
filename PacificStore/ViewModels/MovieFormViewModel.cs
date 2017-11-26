@@ -31,6 +31,18 @@ namespace PacificStore.ViewModels
 
         public string Title => (Id != 0) ? "Edit Movie" : "New Movie";
 
+        public MovieFormViewModel()
+        {
+            Id = 0;
+        }
 
+        public MovieFormViewModel(Movie movie)
+        {
+            Id = movie.Id;
+            Name = movie.Name;
+            ReleaseDate = movie.ReleaseDate;
+            NumberInStock = movie.NumberInStock;
+            GenreId = movie.GenreId;
+        }
     }
 }
