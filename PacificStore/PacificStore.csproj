@@ -229,17 +229,13 @@
     <Compile Include="Migrations\201711231050110_AddCustomerBirthDate.Designer.cs">
       <DependentUpon>201711231050110_AddCustomerBirthDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711240740224_AddGenreToMovieAndGenreModel.cs" />
-    <Compile Include="Migrations\201711240740224_AddGenreToMovieAndGenreModel.Designer.cs">
-      <DependentUpon>201711240740224_AddGenreToMovieAndGenreModel.cs</DependentUpon>
+    <Compile Include="Migrations\201711260357269_AddMovieGenre.cs" />
+    <Compile Include="Migrations\201711260357269_AddMovieGenre.Designer.cs">
+      <DependentUpon>201711260357269_AddMovieGenre.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711240910138_PopulateGenres.cs" />
-    <Compile Include="Migrations\201711240910138_PopulateGenres.Designer.cs">
-      <DependentUpon>201711240910138_PopulateGenres.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711240917110_AddPropertiesToMovieModel.cs" />
-    <Compile Include="Migrations\201711240917110_AddPropertiesToMovieModel.Designer.cs">
-      <DependentUpon>201711240917110_AddPropertiesToMovieModel.cs</DependentUpon>
+    <Compile Include="Migrations\201711260402141_PopulateMovieGenres.cs" />
+    <Compile Include="Migrations\201711260402141_PopulateMovieGenres.Designer.cs">
+      <DependentUpon>201711260402141_PopulateMovieGenres.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -252,9 +248,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-cyborg.css" />
+    <Content Include="Content\bootstrap-superhero.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -315,8 +312,8 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
-    <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -359,14 +356,11 @@
     <EmbeddedResource Include="Migrations\201711231050110_AddCustomerBirthDate.resx">
       <DependentUpon>201711231050110_AddCustomerBirthDate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711240740224_AddGenreToMovieAndGenreModel.resx">
-      <DependentUpon>201711240740224_AddGenreToMovieAndGenreModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711260357269_AddMovieGenre.resx">
+      <DependentUpon>201711260357269_AddMovieGenre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711240910138_PopulateGenres.resx">
-      <DependentUpon>201711240910138_PopulateGenres.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711240917110_AddPropertiesToMovieModel.resx">
-      <DependentUpon>201711240917110_AddPropertiesToMovieModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711260402141_PopulateMovieGenres.resx">
+      <DependentUpon>201711260402141_PopulateMovieGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
