@@ -7,13 +7,13 @@ namespace PacificStore.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddGenreToMovieAndGenreModel : IMigrationMetadata
+    public sealed partial class PopulateMovieGenres : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddGenreToMovieAndGenreModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateMovieGenres));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711240740224_AddGenreToMovieAndGenreModel"; }
+            get { return "201711260402141_PopulateMovieGenres"; }
         }
         
         string IMigrationMetadata.Source
