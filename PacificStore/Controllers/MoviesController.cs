@@ -29,10 +29,9 @@ namespace PacificStore.Controllers
             return View(movies);
         }
 
-        public ActionResult Create()
+        public ActionResult MovieForm()
         {
             var genres = _context.Genres.ToList();
-
             var viewModel = new MovieFormViewModel
             {
                 Genres = genres
@@ -48,17 +47,25 @@ namespace PacificStore.Controllers
                 return HttpNotFound();
             }
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 Genres = _context.Genres.ToList()
             };
             return View("MovieForm", viewModel);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+                return View("MovieForm", viewModel);
+            }
             if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
