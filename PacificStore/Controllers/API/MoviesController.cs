@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AutoMapper;
+using PacificStore.Dtos;
 using PacificStore.Models;
 
 namespace PacificStore.Controllers.API
@@ -18,9 +20,9 @@ namespace PacificStore.Controllers.API
         }
 
         // GET api/movies
-        public IEnumerable<Movie> GetMovies()
+        public IEnumerable<MovieDto> GetMovies()
         {
-            return _context.Movies.ToList();
+            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
         }
 
         // GET /api/movies/1
