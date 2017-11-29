@@ -48,7 +48,18 @@ namespace PacificStore.Controllers.API
 
         // GET /api/movies/1
         [HttpPut]
-        public Movie Update
-        
+        public void UpdateMovie(int id, Movie movie)
+        {
+            if(!ModelState.IsValid)
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+
+            var customerInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if(customerInDb == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            _context.SaveChanges();
+        }
+
     }
 }
