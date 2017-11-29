@@ -19,7 +19,7 @@ namespace PacificStore.Dtos
 
         public bool IsSubscribedToNewsLetter { get; set; }
 
-        [Min18YearsIfAMember]
+//        [Min18YearsIfAMember]
         public byte MembershipTypeId { get; set; }
     }
 }
