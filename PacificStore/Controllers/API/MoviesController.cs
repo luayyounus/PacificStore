@@ -46,20 +46,19 @@ namespace PacificStore.Controllers.API
             return movie;
         }
 
-        // GET /api/movies/1
+        // PUT /api/movies/1
         [HttpPut]
         public void UpdateMovie(int id, Movie movie)
         {
             if(!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
-            var customerInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
+            var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
 
-            if(customerInDb == null)
+            if(movieInDb == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
             _context.SaveChanges();
         }
-
     }
 }
