@@ -60,5 +60,20 @@ namespace PacificStore.Controllers.API
 
             _context.SaveChanges();
         }
+
+        // DELETE /api/movies/1
+        [HttpDelete]
+        public void DeleteMovie(int id)
+        {
+            if (!ModelState.IsValid)
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+
+            var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
+            if (movieInDb == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            _context.Movies.Remove(movieInDb);
+            _context.SaveChanges();
+        }
     }
 }
