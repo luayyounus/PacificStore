@@ -26,22 +26,20 @@ namespace PacificStore.Controllers.API
         }
 
         // GET /api/movies/1
-        public MovieDto GetMovie(int id)
+        public IHttpActionResult GetMovie(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
             if (movie == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-
-            return Mapper.Map<Movie, MovieDto>(movie);
+                NotFound();
+            return Ok(Mapper.Map<Movie, MovieDto>(movie));
         }
 
         // GET /api/movies
         [HttpPost]
-        public MovieDto CreateMovie(MovieDto movieDto)
+        public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
-            if(!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
-
+            if (!ModelState.IsValid)
+                BadRequest();
             var movie = Mapper.Map<MovieDto, Movie>(movieDto);
 
             _context.Movies.Add(movie);
@@ -49,7 +47,7 @@ namespace PacificStore.Controllers.API
 
             movieDto.Id = movie.Id;
 
-            return movieDto;
+            return Created(new Uri(Request.RequestUri + "/" + movie.Id), movieDto);
         }
 
         // PUT /api/movies/1
