@@ -7,7 +7,7 @@ using PacificStore.Models;
 
 namespace PacificStore.Dtos
 {
-    public class CustomerDto
+    public class MovieDto
     {
         public int Id { get; set; }
 
@@ -15,11 +15,16 @@ namespace PacificStore.Dtos
         [StringLength(255)]
         public string Name { get; set; }
 
-        public DateTime? BirthDate { get; set; }
+        [Required]
+        public DateTime ReleaseDate { get; set; }
 
-        public bool IsSubscribedToNewsLetter { get; set; }
+        [Required]
+        public DateTime DateAdded { get; set; }
 
-//        [Min18YearsIfAMember]
-        public byte MembershipTypeId { get; set; }
+        [Required]
+        [Range(0, 20)]
+        public int NumberInStock { get; set; }
+
+        public byte GenreId { get; set; }
     }
 }
