@@ -12,7 +12,7 @@ namespace UnitTestProjectPacificStore
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Edit_Customer_with_id()
         {
             var mockSetCustomer = new Mock<DbSet<Customer>>();
             var mockContext = new Mock<ApplicationDbContext>();
