@@ -13,9 +13,9 @@ namespace PacificStore.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public CustomersController()
+        public CustomersController(ApplicationDbContext context)
         {
-            _context = new ApplicationDbContext();
+            _context = context;
         }
 
         protected override void Dispose(bool disposing)
